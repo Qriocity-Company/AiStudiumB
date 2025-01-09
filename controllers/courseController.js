@@ -5,7 +5,7 @@ const Question = require("../models/question");
 // Create a Course
 const createCourse = async (req, res) => {
   try {
-    const { courseName, notes, videoLectures, description, image } = req.body;
+    const { courseName, notes, videoLectures, description, image,content } = req.body;
 
     const newCourse = new Course({
       courseName,
@@ -13,6 +13,7 @@ const createCourse = async (req, res) => {
       videoLectures,
       description,
       image,
+      content
     });
     await newCourse.save();
 

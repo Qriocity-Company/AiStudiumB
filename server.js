@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const userRoutes = require("./routes/userRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 const resultRoutes = require("./routes/resultRoutes")
+const domainRoutes = require("./routes/domainRoutes")
 const connectDB = require("./config/db");
 
 // Initialize the app
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 app.use("/user", userRoutes);
 app.use("/course", courseRoutes);
 app.use("/api/results", resultRoutes);
+app.use("/domains", domainRoutes);
 // Start the server
 const PORT = 8000;
 app.listen(PORT, () => {

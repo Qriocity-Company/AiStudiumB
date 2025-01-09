@@ -9,6 +9,9 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  content:{
+    type:String
+  },
   image: {
     type: String,
     required: true,
