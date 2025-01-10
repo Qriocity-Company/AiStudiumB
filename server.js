@@ -6,6 +6,7 @@ const userRoutes = require("./routes/userRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 const resultRoutes = require("./routes/resultRoutes")
 const domainRoutes = require("./routes/domainRoutes")
+const gencourseRoutes = require("./routes/gencourseRoutes");
 const connectDB = require("./config/db");
 
 // Initialize the app
@@ -27,6 +28,7 @@ app.use("/user", userRoutes);
 app.use("/course", courseRoutes);
 app.use("/api/results", resultRoutes);
 app.use("/domains", domainRoutes);
+app.use("/gencourse", gencourseRoutes);
 // Start the server
 const PORT = 8000;
 app.listen(PORT, () => {
