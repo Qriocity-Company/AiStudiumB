@@ -60,4 +60,20 @@ router.post("/search", async (req, res) => {
   }
 });
 
+router.get("/all", async (req, res) => {
+  try {
+    // Fetch all domains from the database
+    const domains = await Domain.find();
+
+    if (domains.length === 0) {
+      return res.status(404).json({ message: "No domains found." });
+    }
+
+    res.status(200).json({ domains });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error." });
+  }
+});
+
 module.exports = router;
