@@ -35,6 +35,7 @@ router.post("/add", async (req, res) => {
 });
 
 router.post("/search", async (req, res) => {
+  console.log("Request Body:", req.body); // Log the incoming request body
   const { domainName } = req.body;
 
   if (!domainName) {

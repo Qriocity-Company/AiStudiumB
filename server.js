@@ -10,13 +10,14 @@ const connectDB = require("./config/db");
 
 // Initialize the app
 const app = express();
+
 connectDB();
 
 // Middleware
 app.use(cors()); // Enable CORS for all routes
 app.use(bodyParser.json()); // Parse JSON request bodies
 app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded data
-
+app.use(express.json());
 // Routes
 app.get("/", (req, res) => {
   res.send("Welcome to the Express Server!");

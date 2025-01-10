@@ -5,11 +5,12 @@ const Question = require("../models/question");
 // Create a Course
 const createCourse = async (req, res) => {
   try {
-    const { courseName, notes, videoLectures, description, image,content } = req.body;
+    const { courseName, notes, videos, videoLectures, description, image,content } = req.body;
 
     const newCourse = new Course({
       courseName,
       notes,
+      videos,
       videoLectures,
       description,
       image,
@@ -105,6 +106,7 @@ const allCourses = async (req, res) => {
   try {
     const courses = await Course.find()
       .populate("notes")
+      .populate("videos")
       .populate("videoLectures")
       .populate({
         path: "quizes",
